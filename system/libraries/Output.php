@@ -107,6 +107,10 @@ class CI_Output {
 	 * @param	string
 	 * @return	void
 	 */	
+	function set_status_header($code = '200', $text = '')
+        {
+                return;
+        }
 	function set_header($header)
 	{
 		$this->headers[] = $header;

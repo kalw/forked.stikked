@@ -112,17 +112,18 @@ INSERT INTO `languages` (`code`, `description`) VALUES
 
 CREATE TABLE IF NOT EXISTS `pastes` (
   `id` int(10) NOT NULL auto_increment,
-  `pid` varchar(8) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `title` varchar(32) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `name` varchar(32) character set utf8 collate utf8_unicode_ci NOT NULL,
+  `pid` text character set utf8 collate utf8_unicode_ci NOT NULL,
+  `title` text character set utf8 collate utf8_unicode_ci NOT NULL,
+  `name` text character set utf8 collate utf8_unicode_ci NOT NULL,
   `lang` varchar(32) character set utf8 collate utf8_unicode_ci NOT NULL,
   `private` tinyint(1) NOT NULL,
   `paste` longtext character set utf8 collate utf8_unicode_ci NOT NULL,
-  `raw` longtext character set utf8 collate utf8_unicode_ci NOT NULL,
+  `raw` text character set utf8 collate utf8_unicode_ci NOT NULL,
   `created` int(10) NOT NULL,
   `expire` int(10) NOT NULL default '0',
   `toexpire` tinyint(1) unsigned NOT NULL,
   `snipurl` varchar(64) character set utf8 collate utf8_unicode_ci NOT NULL default '0',
   `replyto` varchar(8) character set utf8 collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`id`)
+  FULLTEXT (name,title,raw),
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=154 ;

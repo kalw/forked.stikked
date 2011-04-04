@@ -45,7 +45,7 @@ class Iphone extends Controller
 	
 	function index()
 	{
-		$this->load->model('pastes');
+		$this->load->model(array('languages','pastes'));
 		$data = $this->pastes->getLists('iphone/');
 		$this->load->view('iphone/recent', $data);
 	}
@@ -60,7 +60,7 @@ class Iphone extends Controller
 	
 	function view()
 	{
-		$this->load->model('pastes');
+		$this->load->model(array('languages','pastes'));
 		$data = $this->pastes->getPaste(3);
 		$this->load->view('iphone/view', $data);
 	}
