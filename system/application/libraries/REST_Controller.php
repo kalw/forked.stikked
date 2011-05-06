@@ -25,6 +25,7 @@ class REST_Controller extends Controller
 		'jsonp' 	=> 'application/json',
 		'serialize' => 'application/vnd.php.serialized',
 		'php' 		=> 'text/plain',
+		'txt' 		=> 'text/plain',
 		'html' 		=> 'text/html',
 		'csv' 		=> 'application/csv'
 	);
