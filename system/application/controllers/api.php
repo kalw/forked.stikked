@@ -13,7 +13,7 @@ class Api extends REST_Controller {
 	$search = $this->get('term');
 	$onlySubject = $this->get('subject');
 	if( "$onlySubject" == "" ){ $this->db->select('pid, title, name, raw'); }
-	if( "$onlySubject" == "only" ){ $this->db->select('title, pid');}
+	if( "$onlySubject" == "only" ){ $this->db->select('pid, title');}
 	$this->db->where('MATCH (name,title,raw) AGAINST ("'. $search .'" IN BOOLEAN MODE)', NULL, FALSE);
         $searchQuery = $this->db->get('pastes');
 	$searchData = $searchQuery->result_array();
