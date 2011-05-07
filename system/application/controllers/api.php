@@ -16,9 +16,15 @@ class Api extends REST_Controller {
 	if( "$onlySubject" == "only" ){ $this->db->select('pid, title');}
 	$this->db->where('MATCH (name,title,raw) AGAINST ("'. $search .'" IN BOOLEAN MODE)', NULL, FALSE);
         $searchQuery = $this->db->get('pastes');
+	$searchQueryNumRows=$searchQuery->num_rows();
+	if($searchQueryNumRows == 0){
+	$toto=array("Results"=>"NoResults.");
+        $this->response($toto, 400);
+	} else {
 	$searchData = $searchQuery->result_array();
         $this->response($searchData,200);
-        }
+	}
+	}
 
     function list_get(){
         $this->load->model(array('languages','pastes'));
