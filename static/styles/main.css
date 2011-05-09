@@ -50,6 +50,12 @@ h4 {
 
 /* !Header */
 .header {
+	background-color: #2A4367;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	color: #FFFFFF;
 }
 
 .header h1 {

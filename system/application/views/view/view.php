@@ -1,4 +1,5 @@
 <?php $this->load->view('defaults/header'); ?>
+<?php $this->load->view('defaults/right_side'); ?>
 
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function(){
@@ -17,8 +18,12 @@
 	echo $insert;
 }?>
 
-<div class="paste_info">
-	<div class="info">
+<div id="content_left">
+<div class="paste_box_frame">
+		<div class="paste_box_icon">
+		<img border="0" alt="Guest" src="<?php echo config_item('base_url'); ?>static/images/guest.gif">	
+		</div>
+	<div class="paste_box_info">
 		<h1 class="pagetitle right"><?=$title?></h1>
 		<div class="meta">
 			<span class="detail by">By <?=$name?>, <? $p = explode(',', timespan($created, time())); echo $p[0]?> ago, written in <?=$lang?>.</span>
@@ -36,14 +41,10 @@
 		</div>
 	</div>
 </div>
-</div>
-</div>
-</div>
-</div>
-
+<div class="layout_clear"></div>
 <div class="paste <?php if($full_width){ echo "full"; }?>">
 	<div class="text_formatted <?php if($full_width){ echo "full"; }?>">
-		<div class="container">
+		<div id="code_frame">
 			<?=$paste?>
 		</div>
 	</div>
@@ -100,6 +101,7 @@
 		$this->load->view('defaults/paste_form', $reply_form); ?>
 	</div>
 
+</div>
 </div>
 
 <?php $this->load->view('view/view_footer'); ?>

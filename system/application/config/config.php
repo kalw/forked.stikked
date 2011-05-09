@@ -11,7 +11,7 @@
 |	http://www.example.com/
 |
 */
-$config['base_url']	= "http://localhost/~rdespres/stikked/";
+$config['base_url']	= "http://localhost/~rdespres/forked.stikked/";
 
 /*
 |--------------------------------------------------------------------------

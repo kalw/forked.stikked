@@ -1,4 +1,6 @@
 <?php $this->load->view('defaults/header');?>
+<?php $this->load->view('defaults/right_side'); ?>
+<div id="content_left">
 <small><a class="control" href="<?php echo site_url("view/options")?>">Change paste viewing options</a></small><br/><br/>
 <h1>Recent Pastes</h1>
 
@@ -8,9 +10,9 @@
 		}
 		$n = 0;		
 		if(!empty($pastes)){ ?>
-			<table class="recent">
+			<table class="maintable">
 				<tbody>
-					<tr>
+					<tr class="top">
 						<th class="title">Title</th>
 						<th class="name">Name</th>
 						<th class="lang">Language</th>
@@ -18,9 +20,9 @@
 					</tr>
 		<?	foreach($pastes as $paste) {
 				if(checkNum($n) == TRUE) {
-					$eo = "even";
+					$eo = "";
 				} else {
-					$eo = "odd";
+					$eo = "g";
 				}
 				$n++;
 		?>	
@@ -39,5 +41,6 @@
 			<p>There have been no pastes :(</p>
 		<? }?>
 <?=$pages?>
-<div class="spacer"></div>
+<div class="spacer"><p></div>
+</div>
 <?php $this->load->view('defaults/footer');?>

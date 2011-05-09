@@ -121,6 +121,9 @@ if ( ! defined('E_STRICT'))
 	define('E_STRICT', 2048);
 }
 
+//error_reporting(E_ALL); 
+ini_set('display_errors', 1);
+
 /*
 |---------------------------------------------------------------
 | LOAD THE FRONT CONTROLLER
