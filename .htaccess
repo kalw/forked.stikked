@@ -1,5 +1,6 @@
 RewriteEngine On
 RewriteBase /~rdespres/forked.stikked
+RewriteCond $1 !^(captcha)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
