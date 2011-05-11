@@ -29,7 +29,7 @@
 				</ul>
 			</div>
 			<div id="header_middle">
-				<span class="span_left big"><a href="<?php echo config_item('base_url');  ?>/">Forked.Stikked</a></span> <span id="title_extra"></span>
+				<span class="span_left big"><a href="<?php echo config_item('base_url');  ?>">Forked.Stikked</a></span> <span id="title_extra"></span>
 				<div id="header_middle_search">
 					<form id="cse-search-box" action="search" method="get" name="search_form" class="search_form">
 						<input type="text" onfocus="this.value=''" value="search..." size="5" name="q" class="search_input">
@@ -40,12 +40,15 @@
 			<div id="header_bottom">
 				<div class="div_top_menu">
 					<ul class="top_menu no_border">
-						<li><a href="/">create new paste</a></li>
-						<li class="trending"><a href="/trends">trending pastes</a></li>
+						<li><a href="<?php echo config_item('base_url');  ?>">create new paste</a></li>
+						<li class="trending"><a href="<?php echo config_item('base_url');  ?>trends">trending pastes</a></li>
 					</ul>
 				</div>
 				<ul class="top_menu">
-					<li class="no_border_li"><a href="<?php echo config_item('base_url');  ?>/auth/register">sign up</a></li><li><a href="<?php echo config_item('base_url');  ?>/auth/login">login</a></li><li><a href="<?php echo config_item('base_url');  ?>settings">my settings</a></li><li><a href="<?php echo config_item('base_url');  ?>profile">my profile</a></li>				
+					<li class="no_border_li"><a href="<?php echo config_item('base_url');  ?>auth/register">sign up</a></li>
+					<li><a href="<?php echo config_item('base_url');  ?>auth/login">login</a></li>
+					<li><a href="<?php echo config_item('base_url');  ?>settings">my settings</a></li>
+					<li><a href="<?php echo config_item('base_url');  ?>profile">my profile</a></li>				
 				</ul>		
 			</div>			
 		</div>
