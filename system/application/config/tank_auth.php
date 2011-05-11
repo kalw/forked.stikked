@@ -8,7 +8,7 @@
 |--------------------------------------------------------------------------
 */
 $config['website_name'] = 'Your project';
-$config['webmaster_email'] = 'webmaster@your-site.com';
+$config['webmaster_email'] = 'rdespres@digitas.fr';
 
 /*
 |--------------------------------------------------------------------------
