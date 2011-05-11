@@ -60,28 +60,28 @@ class Main extends Controller
 		
 		if(!$this->input->post('submit'))
 		{
-			if($this->db_session->flashdata('settings_changed'))
+			if($this->session->flashdata('settings_changed'))
 			{
 				$data['status_message'] = 'Settings successfully changed';
 			}
 			
-			$data['name_set'] = $this->db_session->userdata('name');
-			$data['expire_set'] = $this->db_session->userdata('expire');
-			$data['acopy_set'] = $this->db_session->userdata('acopy');
-			$data['private_set'] = $this->db_session->userdata('private');			
-			$data['snipurl_set'] = $this->db_session->userdata('snipurl');
-			$data['remember_set'] = $this->db_session->userdata('remember');
+			$data['name_set'] = $this->session->userdata('name');
+			$data['expire_set'] = $this->session->userdata('expire');
+			$data['acopy_set'] = $this->session->userdata('acopy');
+			$data['private_set'] = $this->session->userdata('private');			
+			$data['snipurl_set'] = $this->session->userdata('snipurl');
+			$data['remember_set'] = $this->session->userdata('remember');
 			$data['paste_set'] = $paste;
 			$data['title_set'] = $title;
 			$data['reply'] = $reply;
 
-			if($lang != 'php' or ($lang == 'php' and $this->db_session->userdata('lang') == false))
+			if($lang != 'php' or ($lang == 'php' and $this->session->userdata('lang') == false))
 			{
 				$data['lang_set'] = $lang;
 			}
-			elseif($this->db_session->userdata('lang'))
+			elseif($this->session->userdata('lang'))
 			{
-				$data['lang_set'] = $this->db_session->userdata('lang');
+				$data['lang_set'] = $this->session->userdata('lang');
 			}
 		}
 		else
@@ -142,7 +142,7 @@ class Main extends Controller
 			{
 				if(isset($_POST['acopy']) and $_POST['acopy'] > 0)
 				{
-					$this->db_session->set_flashdata('acopy', 'true');
+					$this->session->set_flashdata('acopy', 'true');
 				}
 				
 				if($this->input->post('remember') and $this->input->post('reply') == false )
@@ -156,10 +156,10 @@ class Main extends Controller
 							'private' => $this->input->post('private'),
 							'remember' => $this->input->post('remember')
 						);
-					$this->db_session->set_userdata($user_data);
+					$this->session->set_userdata($user_data);
 				}
 				
-				if($this->input->post('remember') == false and $this->db_session->userdata("remember") == 1)
+				if($this->input->post('remember') == false and $this->session->userdata("remember") == 1)
 				{
 					$user_data = array(
 							'name' => '',
@@ -170,7 +170,7 @@ class Main extends Controller
 							'private' => '0',
 							'remember' => '0'
 						);
-					$this->db_session->unset_userdata($user_data);
+					$this->session->unset_userdata($user_data);
 				}
 				
 				redirect($this->pastes->createPaste());
@@ -262,16 +262,16 @@ class Main extends Controller
 		if($check)
 		{
 			
-			if($this->db_session->userdata('view_raw'))
+			if($this->session->userdata('view_raw'))
 			{
-				$this->db_session->keep_flashdata('acopy');
+				$this->session->keep_flashdata('acopy');
 				redirect('view/raw/'.$this->uri->segment(2));
 			}
 			
 			$data = $this->pastes->getPaste(2, true);
 			$data['reply_form'] = $this->_form_prep($data['lang_code'], "RE: ".$data['title'], $data['raw'], $data['pid']);
 			
-			if($this->db_session->userdata('full_width'))
+			if($this->session->userdata('full_width'))
 			{
 				$data['full_width'] = true;
 			}
@@ -300,10 +300,10 @@ class Main extends Controller
 	function _view_options_prep()
 	{
 		$this->load->helper('form');
-		if($this->db_session->userdata('remember_view') > 0)
+		if($this->session->userdata('remember_view') > 0)
 		{
-			$data['full_width_set'] = $this->db_session->userdata('full_width');
-			$data['view_raw_set'] = $this->db_session->userdata('view_raw');
+			$data['full_width_set'] = $this->session->userdata('full_width');
+			$data['view_raw_set'] = $this->session->userdata('view_raw');
 		}
 		else
 		{
@@ -349,8 +349,8 @@ class Main extends Controller
 					'view_raw' => $this->input->post('view_raw'),
 					'remember_view' => true
 					);
-				$this->db_session->set_userdata($user_data);
-				$this->db_session->set_flashdata('settings_changed', 'true');
+				$this->session->set_userdata($user_data);
+				$this->session->set_flashdata('settings_changed', 'true');
 				redirect();
 			}
 		}
