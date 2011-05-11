@@ -1,1 +1,4 @@
-<?php echo $message; ?>
+<?php 
+$this->load->view('defaults/header');
+echo $message; 
+?>
