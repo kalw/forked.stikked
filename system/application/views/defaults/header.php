@@ -45,10 +45,14 @@
 					</ul>
 				</div>
 				<ul class="top_menu">
+					<?php if(!$this->tank_auth->is_logged_in()){?>
 					<li class="no_border_li"><a href="<?php echo config_item('base_url');  ?>auth/register">sign up</a></li>
 					<li><a href="<?php echo config_item('base_url');  ?>auth/login">login</a></li>
+					<?}else{?>
 					<li><a href="<?php echo config_item('base_url');  ?>settings">my settings</a></li>
 					<li><a href="<?php echo config_item('base_url');  ?>profile">my profile</a></li>				
+					<li><a href="<?php echo config_item('base_url');  ?>auth/logout">logout</a></li>				
+					<?}?>
 				</ul>		
 			</div>			
 		</div>
