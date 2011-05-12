@@ -63,7 +63,6 @@
 
 
 	</div>
-		</form>
 	<div class="form_frame_right">
 		<div class="">
 			Set some <a href="#" class="show control">advanced</a> options.
@@ -149,6 +148,7 @@
 					<button type="submit" value="submit" name="submit">Create</button>
 				</div>
 			</div>
+		</form>
 		</div>
 	</div>
 </div>
