@@ -21,7 +21,7 @@
 *
 */
 
-class Pastes extends Model 
+class Pastes extends CI_Model 
 {
 
     function __construct()
@@ -272,7 +272,7 @@ class Pastes extends Model
 
 		$data['scripts'] = array('jquery.js');
 
-		if($this->db_session->flashdata('acopy') == 'true')
+		if($this->session->flashdata('acopy') == 'true')
 		{
 			if($data['snipurl'])
 			{
@@ -350,7 +350,7 @@ class Pastes extends Model
 		}
 		
 		$this->db->where('private', 0);
-		$this->db->orderby('created', 'desc');
+		$this->db->order_by('created', 'desc');
 		$query = $this->db->get('pastes', $amount, $page);
 		$data['pastes'] = $query->result_array();
 		
