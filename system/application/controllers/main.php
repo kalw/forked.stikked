@@ -120,20 +120,22 @@ class Main extends CI_Controller
 		else
 		{
 			$this->load->model('pastes');
-			$this->load->library('validation');
+			$this->load->library('form_validation');
 		
-			$rules['code'] = 'required';
-			$rules['lang'] = 'min_length[1]|required|callback__valid_lang';
+			$rules['code'] = array("field" => "code","label" => "Main Paste", "rules" => "required");
+			$rules['lang'] = array("field" => "lang","label" => "Language","rules" => "min_length[1]|required|callback__valid_lang");
+			//$rules['code'] = 'required';
+			//$rules['lang'] = 'min_length[1]|required|callback__valid_lang';
 
-			$fields['code'] = 'Main Paste';
-			$fields['lang'] = 'Language';
+			//$fields['code'] = 'Main Paste';
+			//$fields['lang'] = 'Language';
 			
-			$this->validation->set_rules($rules);
-			$this->validation->set_fields($fields);
-			$this->validation->set_message('min_length', 'The %s field can not be empty');
-			$this->validation->set_error_delimiters('<div class="message error"><div class="container">', '</div></div>');
+			$this->form_validation->set_rules($rules);
+			//$this->form_validation->set_fields($fields);
+			$this->form_validation->set_message('min_length', 'The %s field can not be empty');
+			$this->form_validation->set_error_delimiters('<div class="message error"><div class="container">', '</div></div>');
 			
-			if ($this->validation->run() == FALSE)
+			if ($this->form_validation->run() == FALSE)
 			{
 				$data = $this->_form_prep();
 				$this->load->view('home', $data);
@@ -331,7 +333,7 @@ class Main extends CI_Controller
 		}
 		else
 		{
-			$this->load->library('validation');
+			$this->load->library('form_validation');
 			
 			$rules['full_width'] = 'max_length[1]';
 			$rules['view_raw'] = 'max_length[1]';

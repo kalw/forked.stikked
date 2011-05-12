@@ -21,7 +21,7 @@
 *
 */
 
-class Languages extends Model 
+class Languages extends CI_Model 
 {
 
 	/** 
