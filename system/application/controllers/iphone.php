@@ -21,7 +21,7 @@
 *
 */
 
-class Iphone extends Controller 
+class Iphone extends CI_Controller 
 {
 	
 	/** 

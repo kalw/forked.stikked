@@ -10,23 +10,17 @@
 |	http://codeigniter.com/user_guide/libraries/email.html
 |
 */
-$config['mailtype'] = 'html';
 
-$config['protocol']=‘smtp’;
+$config['mailtype'] = "html";
+$config['protocol']="smtp";
+$config['smtp_host']="192.168.0.7"; 
+$config['smtp_port']="25"; 
+$config['smtp_timeout']="30";
+$config['smtp_user']=""; 
+$config['smtp_pass']="";
+$config['charset']="utf-8";
+$config['newline']="\r\n"; 
 
-$config['smtp_host']=‘ssl://smtp.googlemail.com’; 
-
-$config['smtp_port']=’465′; 
-
-$config['smtp_timeout']=’30′;
-
-$config['smtp_user']=‘regis.despres@gmail.com’; 
-
-$config['smtp_pass']=‘dfy76dx34’;
-
-$config['charset']=‘utf-8′;
-
-$config['newline']=“\r\n”; 
 
 /* End of file email.php */
 /* Location: ./application/config/email.php */
