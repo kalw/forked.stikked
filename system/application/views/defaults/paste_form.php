@@ -8,7 +8,7 @@
 	});
 </script>
 
-<?php if(isset($this->validation->error_string)){ echo $this->validation->error_string; }?>
+<?php if(isset($this->form_validation->error_string)){ echo $this->form_validation->error_string; }?>
 <div id="content_left" class="form_wrapper margin">
 	<div class="content_title">
 
