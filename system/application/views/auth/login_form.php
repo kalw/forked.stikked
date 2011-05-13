@@ -1,4 +1,5 @@
 <?php
+$this->load->view('defaults/header');
 $login = array(
 	'name'	=> 'login',
 	'id'	=> 'login',
