@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<title><?php echo $config['site_name'];?></title>
-		<!-- <link rel="stylesheet" href="<?echo $config['base_url']?>static/styles/fonts.css" type="text/css" /> -->
+		<title><?php echo config_item('base_url') ;?></title>
+		<!-- <link rel="stylesheet" href="<?php ?>static/styles/fonts.css" type="text/css" /> -->
 		<!-- <link rel="stylesheet" href="<?php ?>static/styles/main.css" type="text/css" media="screen" title="main" charset="utf-8" /> -->
 		<link href="<?php echo config_item('base_url');  ?>static/styles/style.css" rel="stylesheet" type="text/css" />
 
