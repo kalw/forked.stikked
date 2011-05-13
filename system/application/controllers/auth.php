@@ -104,6 +104,8 @@ class Auth extends CI_Controller
 	function logout()
 	{
 		$this->tank_auth->logout();
+    $this->session->sess_destroy();
+    $this->session->sess_create();
 
 		$this->_show_message($this->lang->line('auth_message_logged_out'));
 	}
@@ -242,6 +244,8 @@ class Auth extends CI_Controller
 		// Activate user
 		if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
 			$this->tank_auth->logout();
+    			$this->session->sess_destroy();
+    			$this->session->sess_create();
 			$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));
 
 		} else {																// fail
@@ -439,8 +443,10 @@ class Auth extends CI_Controller
 			$data['errors'] = array();
 
 			if ($this->form_validation->run()) {								// validation ok
-				if ($this->tank_auth->delete_user(
-						$this->form_validation->set_value('password'))) {		// success
+				if ($this->tank_auth->delete_user($this->form_validation->set_value('password'))) {		// success
+					
+    					$this->session->sess_destroy();
+    					$this->session->sess_create();
 					$this->_show_message($this->lang->line('auth_message_unregistered'));
 
 				} else {														// fail
