@@ -141,6 +141,38 @@ class Format {
 		return $structure->asXML();
 	}
 
+	// Format TXT for output
+	public function to_txt()
+	{
+		$data = $this->_data;
+		$output = "";
+		
+		// Multi-dimentional array
+		if (isset($data[0]))
+		{
+			$headings = array_keys($data[0]);
+		}
+
+		// Single array
+		else
+		{
+			$headings = array_keys($data);
+			$data = array($data);
+		}
+
+		$ci = get_instance();
+		$ci->load->library('table');
+
+		$ci->table->set_heading($headings);
+
+		foreach ($data as &$row)
+		{
+			$output .= '"'.implode('" "', $row)."\"\r\n";
+		}
+
+		return $output;
+	}
+
 	// Format HTML for output
 	public function to_html()
 	{
@@ -257,6 +289,7 @@ class Format {
 	{
 		return unserialize(trim($string));
 	}
+
 
 }
 
