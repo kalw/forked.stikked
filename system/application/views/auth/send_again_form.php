@@ -1,4 +1,5 @@
 <?php
+$this->load->view('defaults/header');
 $email = array(
 	'name'	=> 'email',
 	'id'	=> 'email',

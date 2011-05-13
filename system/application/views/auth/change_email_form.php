@@ -1,4 +1,5 @@
 <?php
+$this->load->view('defaults/header');
 $password = array(
 	'name'	=> 'password',
 	'id'	=> 'password',
