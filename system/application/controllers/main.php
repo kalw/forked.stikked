@@ -112,6 +112,7 @@ class Main extends CI_Controller
 	
 	function index()
 	{
+		$this->load->model('pastes');
 		if(!isset($_POST['submit']))
 		{
 			$data = $this->_form_prep();
@@ -119,7 +120,6 @@ class Main extends CI_Controller
 		}
 		else
 		{
-			$this->load->model('pastes');
 			$this->load->library('form_validation');
 		
 			$rules['code'] = array("field" => "code","label" => "Main Paste", "rules" => "required");
@@ -338,9 +338,9 @@ class Main extends CI_Controller
 			$rules['full_width'] = 'max_length[1]';
 			$rules['view_raw'] = 'max_length[1]';
 			
-			$this->validation->set_rules($rules);
+			$this->form_validation->set_rules($rules);
 			
-			if($this->validation->run() == false)
+			if($this->form_validation->run() == false)
 			{
 				exit('Ugh, stupid skiddie.');
 			}
@@ -409,7 +409,7 @@ class Main extends CI_Controller
 	function _valid_lang($lang) 
 	{
 		$this->load->model('languages');
-		$this->validation->set_message('_valid_lang', 'Please select your language');
+		$this->form_validation->set_message('_valid_lang', 'Please select your language');
 		return $this->languages->valid_language($lang);
 	}
 }
