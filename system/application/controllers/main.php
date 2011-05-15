@@ -243,6 +243,7 @@ class Main extends CI_Controller
 	{
 		$this->load->model('pastes');
 		$data = $this->pastes->getLists();
+		$data['scripts'] = array('jquery.js');
 		$this->load->view('list', $data);
 	}
 	
