@@ -8,11 +8,19 @@
 		<!-- <link rel="stylesheet" href="<?php ?>static/styles/fonts.css" type="text/css" /> -->
 		<!-- <link rel="stylesheet" href="<?php ?>static/styles/main.css" type="text/css" media="screen" title="main" charset="utf-8" /> -->
 		<link href="<?php echo config_item('base_url');  ?>static/styles/style.css" rel="stylesheet" type="text/css" />
+		<link href="<?php echo config_item('base_url');  ?>static/styles/facebox.css" rel="stylesheet" type="text/css" />
 
 		<?php if(!empty($scripts)){?>
 		<?php foreach($scripts as $script){?>
 		<script src="<?php  echo config_item('base_url'); ?>static/js/<?=$script?>" type="text/javascript"></script>
 		<?}}?>		
+		<script src="<?php echo config_item('base_url');  ?>static/js/facebox.js" type="text/javascript"></script>
+		<script type="text/javascript" charset="utf-8">
+			jQuery(document).ready(function(){
+				jQuery('a[rel*=facebox]').facebox()
+			});
+				$(document).bind('afterClose.facebox', function() {location.reload();});
+		</script>
 	</head>
 	<body>
 		<div id="header">
@@ -46,12 +54,12 @@
 				</div>
 				<ul class="top_menu">
 					<?php if(!$this->tank_auth->is_logged_in()){?>
-					<li class="no_border_li"><a href="<?php echo config_item('base_url');  ?>auth/register">sign up</a></li>
-					<li><a href="<?php echo config_item('base_url');  ?>auth/login">login</a></li>
+					<li class="no_border_li"><a href="<?php echo config_item('base_url');  ?>auth/register" rel="facebox">sign up</a></li>
+					<li><a href="<?php echo config_item('base_url');  ?>auth/login" rel="facebox">login</a></li>
 					<?}else{?>
 					<li><a href="<?php echo config_item('base_url');  ?>settings">my settings</a></li>
 					<li><a href="<?php echo config_item('base_url');  ?>profile">my profile</a></li>				
-					<li><a href="<?php echo config_item('base_url');  ?>auth/logout">logout</a></li>				
+					<li><a href="<?php echo config_item('base_url');  ?>auth/logout" rel="facebox">logout</a></li>				
 					<?}?>
 				</ul>		
 			</div>			
