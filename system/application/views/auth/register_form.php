@@ -1,5 +1,5 @@
 <?php
-$this->load->view('defaults/header');
+//$this->load->view('defaults/header');
 if ($use_username) {
 	$username = array(
 		'name'	=> 'username',
