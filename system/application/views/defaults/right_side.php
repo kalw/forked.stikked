@@ -2,14 +2,14 @@
 <?php if($this->tank_auth->is_logged_in()){?>
     <div class="content_right_menu">
       <div class="content_right_title">
-        <a href="/login">My Pastes</a>
+        <a href="<?php echo config_item('base_url');  ?>lists">My Pastes</a>
       </div>
     </div>
 <?php }?>
 
     <div class="content_right_menu">
       <div class="content_right_title">
-        <a href="/archive">Public Pastes</a>
+        <a href="<?php echo config_item('base_url');  ?>lists">Public Pastes</a>
       </div>
 	<?php 
 	$data = $this->pastes->getLists();
@@ -24,17 +24,6 @@
 	<?php }?>
 
     </div>
-
-    <div class="content_right_menu">
-      <div class="content_right_title">
-        <a href="/layout.php">Layout Width</a>
-      </div>
-    </div>
-
-    <div class="content_right_menu">
-      <div class="content_right_title">
-        <a href="">Awesome Users</a>
-      </div>
 
       <div class="menu_users"></div>
     </div>
