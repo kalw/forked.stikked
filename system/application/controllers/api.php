@@ -71,6 +71,4 @@ class Api extends REST_Controller {
         $this->response($data,200);
     }
 
-}
-
-?>  
+}?>
