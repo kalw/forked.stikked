@@ -139,7 +139,7 @@ a.button1{color:#000;}
 input.button1{padding:5px 10px;}
 .icon_header{border:1px solid #ccc;width:16px;height:16px;vertical-align:top;margin:3px 5px 0 0;}
 .rts{background-color:#369;color:#fff;margin:0 0 0 4px;padding:2px 4px;}
-.maintable{font-size:0.8em;border-collapse:collapse;}
+.maintable{font-size:0.8em;border-collapse:collapse;text-align:left;}
 table.maintable{width:100%;}
 .maintable tr.g{background-color:#F8F8F8;}
 .maintable td{vertical-align:top;border-bottom:1px solid #ccc;padding:4px 6px;}

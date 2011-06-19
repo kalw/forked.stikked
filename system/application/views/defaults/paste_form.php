@@ -36,8 +36,8 @@
 			<div class="form_left">
 				<span class="instruction">What's your name?</span>
 			</div>
-			<div class="form_righ">
-				<?php $set = array('name' => 'name', 'id' => 'name', 'value' => $name_set, 'maxlength' => '32', 'tabindex' => '1');
+			<div class="form_right">
+				<?php $set = array('name' => 'name', 'id' => 'name', 'value' => $name_set, 'maxlength' => '32', 'tabindex' => '1', 'class' => 'post_input' );
 				echo form_input($set);?>
 			</div>
 		</div>
@@ -47,7 +47,7 @@
 				<span class="instruction">Give a title.</span>
 			</div>
 			<div class="form_right">
-				<input value="<?php if(isset($title_set)){ echo $title_set; }?>" type="text" id="title" name="title" tabindex="2"  />
+				<input value="<?php if(isset($title_set)){ echo $title_set; }?>" type="text" id="title" name="title" tabindex="2"  class="post_input" />
 			</div>
 		</div>
 																
@@ -56,10 +56,30 @@
 				<span class="instruction">Language</span>
 			</div>
 			<div class="form_right">
-				<?php $lang_extra = 'id="lang" class="select" tabindex="3"'; echo form_dropdown('lang', $languages, $lang_set, $lang_extra); ?>
+				<?php $lang_extra = 'id="lang" class="post_select" tabindex="3"'; echo form_dropdown('lang', $languages, $lang_set, $lang_extra); ?>
 			</div>
 		</div>															
-		
+		<div class="form_frame">
+			<div class="form_left">
+				<span class="instruction">When to delete ?</span>
+			</div>
+			<div class="form_right">
+				<?php 
+					$expire_extra = 'id="expire" class="post_select" tabindex="7"';
+					$options = array(
+								"0" => "Keep Forever",
+								"30" => "30 Minutes",
+								"60" => "1 hour",
+								"360" => "6 Hours",
+								"720" => "12 Hours",
+								"1440" => "1 Day",
+								"100080" => "1 Week",
+								"40320" => "4 Weeks"
+								);
+					echo form_dropdown('expire', $options, $expire_set, $expire_extra); 
+				?>
+			</div>
+		</div>
 
 
 	</div>
@@ -116,27 +136,6 @@
 				</div>
 			</div>						
 	
-			<div class="">
-				<div class="">
-					<span class="instruction">When to delete ?</span>
-				</div>
-				<div class="">
-					<?php 
-						$expire_extra = 'id="expire" class="select" tabindex="7"';
-						$options = array(
-									"0" => "Keep Forever",
-									"30" => "30 Minutes",
-									"60" => "1 hour",
-									"360" => "6 Hours",
-									"720" => "12 Hours",
-									"1440" => "1 Day",
-									"100080" => "1 Week",
-									"40320" => "4 Weeks"
-									);
-						echo form_dropdown('expire', $options, $expire_set, $expire_extra); 
-					?>
-				</div>
-			</div>
 		
 	
 			<?php if($reply){?>
@@ -145,7 +144,7 @@
 	
 			<div class="">
 				<div class="">
-					<button type="submit" value="submit" name="submit">Create</button>
+					<button type="submit" value="submit" name="submit" class="button1">Create</button><br>&nbsp
 				</div>
 			</div>
 		</form>
