@@ -325,7 +325,6 @@ class Pastes extends CI_Model
 		return $data;
 	}
 	
-	
 	/** 
 	* Gets a list of x most recent pastes according to the amount set in the stikked config file.
 	*
@@ -367,6 +366,91 @@ class Pastes extends CI_Model
 		
 		return $data;
 	}
+	
+	/** 
+	* Gets a list of x most recent pastes from a user y according to the amount set in the stikked config file.
+	*
+	* @param string $root Url root needed for pagination
+	* @param int $seg Segment which determines the page we're on for pagination.
+	* @return array
+	* @access public
+	*/
+
+	function getMyLists($root='lists/', $seg=2, $name)
+	{
+		$this->load->library('pagination');
+		$amount = $this->config->item('per_page');
+		
+		if(! $this->uri->segment(2))
+		{
+			$page = 0;
+		}
+		else
+		{
+			$page = $this->uri->segment(2);
+		}
+		
+		$this->db->where('name', $name);
+		$this->db->order_by('created', 'desc');
+		$query = $this->db->get('pastes', $amount, $page);
+		$data['pastes'] = $query->result_array();
+		
+		$config['base_url'] = site_url($root);
+		$config['total_rows'] = $this->countPastes();
+		$config['per_page'] = $amount; 
+		$config['full_tag_open'] = '<div class="pages">';
+		$config['full_tag_close'] = '</div>';
+		$config['uri_segment'] = $seg;
+		
+		$this->pagination->initialize($config);
+			
+		$data['pages'] = $this->pagination->create_links();	
+		
+		return $data;
+	}
+	
+	/** 
+	* Search for a list of x most recent pastes according to the amount set in the stikked config file and the search pattern.
+	*
+	* @param string $root Url root needed for pagination
+	* @param int $seg Segment which determines the page we're on for pagination.
+	* @return array
+	* @access public
+	*/
+	
+	function searchList($root='lists/', $seg=2, $search)
+	{
+		$this->load->library('pagination');
+		$amount = $this->config->item('per_page');
+		
+		if(! $this->uri->segment(2))
+		{
+			$page = 0;
+		}
+		else
+		{
+			$page = $this->uri->segment(2);
+		}
+		
+		$this->db->where('MATCH (name,title,raw) AGAINST ("'. $search .'" IN BOOLEAN MODE)', NULL, FALSE);
+		$this->db->order_by('created', 'desc');
+		$query = $this->db->get('pastes', $amount, $page);
+		$data['pastes'] = $query->result_array();
+		
+		$config['base_url'] = site_url($root);
+		$config['total_rows'] = $this->countPastes();
+		$config['per_page'] = $amount; 
+		$config['full_tag_open'] = '<div class="pages">';
+		$config['full_tag_close'] = '</div>';
+		$config['uri_segment'] = $seg;
+		
+		$this->pagination->initialize($config);
+			
+		$data['pages'] = $this->pagination->create_links();	
+		
+		return $data;
+	}
+	
 	
 	
 	/** 
