@@ -34,11 +34,19 @@
 	<div class="form_frame_left">								
 		<div class="form_frame">
 			<div class="form_left">
-				<span class="instruction">What's your name?</span>
+				<?php if(!$this->tank_auth->is_logged_in()){
+				echo '<span class="instruction">What\'s your name?</span>';
+				}?>
 			</div>
 			<div class="form_right">
-				<?php $set = array('name' => 'name', 'id' => 'name', 'value' => $name_set, 'maxlength' => '32', 'tabindex' => '1', 'class' => 'post_input' );
-				echo form_input($set);?>
+				<?php if($this->tank_auth->is_logged_in()){
+					$username = $this->tank_auth->get_username();
+					$set = array('name' => "$username", 'id' => 'name', 'value' => $name_set, 'maxlength' => '32', 'tabindex' => '1', 'class' => 'post_input' );
+					echo form_hidden($set);
+				}else{
+					$set = array('name' => 'name', 'id' => 'name', 'value' => $name_set, 'maxlength' => '32', 'tabindex' => '1', 'class' => 'post_input' );
+					echo form_input($set);
+				}?>
 			</div>
 		</div>
 		
