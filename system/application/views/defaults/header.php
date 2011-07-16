@@ -39,7 +39,7 @@
 			<div id="header_middle">
 				<span class="span_left big"><a href="<?php echo config_item('base_url');  ?>">Forked.Stikked</a></span> <span id="title_extra"></span>
 				<div id="header_middle_search">
-					<form id="cse-search-box" action="search" method="get" name="search_form" class="search_form">
+					<form id="cse-search-box" action="<?php echo config_item('base_url');  ?>search" method="get" name="search_form" class="search_form">
 						<input type="text" onfocus="this.value=''" value="search..." size="5" name="q" class="search_input">
 						<input type="image" value="Search" alt="" src="http://pastebin.com/i/dot.gif" class="search_button" name="sa" alt="Search...">
 					</form>

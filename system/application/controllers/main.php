@@ -242,7 +242,19 @@ class Main extends CI_Controller
 	function lists()
 	{
 		$this->load->model('pastes');
+		$q="";
+		if(isset($_GET['q'])){
+		$q=$_GET['q'];
+		$data = $this->pastes->searchLists('','',$q);
+		}
+		$name="";
+		if(isset($_GET['name'])){
+		$name=$_GET['name'];
+		$data = $this->pastes->getMyLists('','',$name);
+		}
+		if(!isset($_GET['name'])&&!isset($_GET['q'])){
 		$data = $this->pastes->getLists();
+		}
 		$data['scripts'] = array('jquery.js');
 		$this->load->view('list', $data);
 	}

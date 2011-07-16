@@ -1,11 +1,12 @@
   <div id="content_right">
-<?php if($this->tank_auth->is_logged_in()){?>
+<?php if($this->tank_auth->is_logged_in()){
+	$username = $this->tank_auth->get_username();?>
     <div class="content_right_menu">
       <div class="content_right_title">
-        <a href="<?php echo config_item('base_url');  ?>lists">My Pastes</a>
+        <a href="<?php echo config_item('base_url');  ?>mylists?name=<?php echo $username; ?>">My Pastes</a>
       </div>
 	<?php 
-	$username = $this->tank_auth->get_username();
+	
 	$data = $this->pastes->getMyLists("","",$username);
 	$count=0;
 	foreach($data['pastes'] as $paste) {
