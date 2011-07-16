@@ -2,7 +2,7 @@
 <?php $this->load->view('defaults/right_side'); ?>
 <div id="content_left">
 <small><a class="control" href="<?php echo site_url("view/options")?>">Change paste viewing options</a></small><br/><br/>
-<h1>Recent Pastes</h1>
+<h1><?php if(isset($_GET['name'])){echo ($_GET['name']."'s ");}?>Recent Pastes</h1>
 
 		<?php 
 		function checkNum($num){

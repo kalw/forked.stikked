@@ -48,6 +48,8 @@ $route['view/options'] = 'main/view_options';
 $route['view/:any'] = 'main/view';
 $route['lists'] = 'main/lists';
 $route['lists/:num'] = 'main/lists/$1';
+$route['mylists'] = 'main/lists';
+$route['search'] = 'main/lists';
 $route['about'] = 'main/about';
 
 $route['iphone/:num'] = 'iphone/view/$1';

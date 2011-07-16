@@ -376,7 +376,7 @@ class Pastes extends CI_Model
 	* @access public
 	*/
 
-	function getMyLists($root='lists/', $seg=2, $name)
+	function getMyLists($root='mylists/', $seg=2, $name)
 	{
 		$this->load->library('pagination');
 		$amount = $this->config->item('per_page');
@@ -418,7 +418,7 @@ class Pastes extends CI_Model
 	* @access public
 	*/
 	
-	function searchList($root='lists/', $seg=2, $search)
+	function searchLists($root='search/', $seg=2, $q)
 	{
 		$this->load->library('pagination');
 		$amount = $this->config->item('per_page');
@@ -432,7 +432,7 @@ class Pastes extends CI_Model
 			$page = $this->uri->segment(2);
 		}
 		
-		$this->db->where('MATCH (name,title,raw) AGAINST ("'. $search .'" IN BOOLEAN MODE)', NULL, FALSE);
+		$this->db->where('MATCH (name,title,raw) AGAINST ("'. $q .'" IN BOOLEAN MODE)', NULL, FALSE);
 		$this->db->order_by('created', 'desc');
 		$query = $this->db->get('pastes', $amount, $page);
 		$data['pastes'] = $query->result_array();
