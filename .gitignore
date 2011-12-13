@@ -2,3 +2,4 @@
 system/application/config/*
 system/application/logs/*
 captcha/*.jpg
+*DS_Store
