@@ -7,6 +7,14 @@
 		<title><?php echo config_item('base_url') ;?></title>
 		<!-- <link rel="stylesheet" href="<?php ?>static/styles/fonts.css" type="text/css" /> -->
 		<!-- <link rel="stylesheet" href="<?php ?>static/styles/main.css" type="text/css" media="screen" title="main" charset="utf-8" /> -->
+		<?php if(!empty($css_files)){
+			foreach($css_files as $file){ ?>
+			<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+		<?}}?>
+		<?php if(!empty($js_files)){
+			foreach($js_files as $file){?>
+			<script src="<?php echo $file; ?>"></script>
+		<?}}?>		
 		<link href="<?php echo config_item('base_url');  ?>static/styles/style.css" rel="stylesheet" type="text/css" />
 		<link href="<?php echo config_item('base_url');  ?>static/styles/facebox.css" rel="stylesheet" type="text/css" />
 
@@ -29,10 +37,10 @@
 				<ul class="top_menu">
 					<li class="no_border_li"><a href="<?php echo config_item('base_url');  ?>">create new paste</a></li>
 					<li><a href="<?php echo config_item('base_url');  ?>tools">tools</a></li>
-					<li><a href="<?php echo config_item('base_url');  ?>api">api</a></li>
+					<!-- //<li><a href="<?php echo config_item('base_url');  ?>api">api</a></li> -->
 					<li><a href="<?php echo config_item('base_url');  ?>lists">archive</a></li>
-					<li><a href="<?php echo config_item('base_url');  ?>faq">faq</a></li>
-					<li class="twitter"><a href="http://twitter.com/pastebincom">twitter</a></li>
+					<!-- <li><a href="<?php echo config_item('base_url');  ?>faq">faq</a></li> -->
+					<!-- <li class="twitter"><a href="http://twitter.com/pastebincom">twitter</a></li> -->
 
 				</ul>
 			</div>
@@ -54,12 +62,12 @@
 				</div>
 				<ul class="top_menu">
 					<?php if(!$this->tank_auth->is_logged_in()){?>
-					<li class="no_border_li"><a href="<?php echo config_item('base_url');  ?>auth/register" rel="facebox">sign up</a></li>
-					<li><a href="<?php echo config_item('base_url');  ?>auth/login" rel="facebox">login</a></li>
+					<li class="no_border_li"><a href="<?php echo config_item('base_url');  ?>auth/register" >sign up</a></li>
+					<li><a href="<?php echo config_item('base_url');  ?>auth/login" >login</a></li>
 					<?}else{?>
 					<li><a href="<?php echo config_item('base_url');  ?>settings">my settings</a></li>
 					<li><a href="<?php echo config_item('base_url');  ?>profile">my profile</a></li>				
-					<li><a href="<?php echo config_item('base_url');  ?>auth/logout" rel="facebox">logout</a></li>				
+					<li><a href="<?php echo config_item('base_url');  ?>auth/logout" >logout</a></li>				
 					<?}?>
 				</ul>		
 			</div>			

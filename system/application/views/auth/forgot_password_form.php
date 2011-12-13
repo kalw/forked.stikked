@@ -1,5 +1,5 @@
 <?php
-//$this->load->view('defaults/header');
+$this->load->view('defaults/header');
 $login = array(
 	'name'	=> 'login',
 	'id'	=> 'login',
@@ -23,3 +23,5 @@ if ($this->config->item('use_username', 'tank_auth')) {
 </table>
 <?php echo form_submit('reset', 'Get a new password'); ?>
 <?php echo form_close(); ?>
+</body>
+</html>

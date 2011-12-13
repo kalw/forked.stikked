@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /forked.stikked.git
+RewriteBase /~rdespres/forked.stikked
 RewriteCond $1 !^(captcha)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

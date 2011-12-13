@@ -28,3 +28,5 @@ $email = array(
 </table>
 <?php echo form_submit('change', 'Send confirmation email'); ?>
 <?php echo form_close(); ?>
+</body>
+</html>

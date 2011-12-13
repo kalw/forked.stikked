@@ -39,3 +39,5 @@ $confirm_new_password = array(
 </table>
 <?php echo form_submit('change', 'Change Password'); ?>
 <?php echo form_close(); ?>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <?php
-//$this->load->view('defaults/header');
+$this->load->view('defaults/header');
 $login = array(
 	'name'	=> 'login',
 	'id'	=> 'login',
@@ -92,3 +92,5 @@ $captcha = array(
 </table>
 <?php echo form_submit('submit', 'Let me in'); ?>
 <?php echo form_close(); ?>
+</body>
+</html>

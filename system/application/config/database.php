@@ -42,9 +42,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = '127.0.0.1';
-$db['default']['username'] = 'stikked_usr';
-$db['default']['password'] = 'stikked_pwd';
-$db['default']['database'] = 'stikked';
+$db['default']['username'] = 'fstikked_usr';
+$db['default']['password'] = 'fstikked_pwd';
+$db['default']['database'] = 'forked_stikked';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

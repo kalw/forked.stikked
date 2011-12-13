@@ -18,3 +18,5 @@ $email = array(
 </table>
 <?php echo form_submit('send', 'Send'); ?>
 <?php echo form_close(); ?>
+</body>
+</html>

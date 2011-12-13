@@ -55,6 +55,7 @@ $route['about'] = 'main/about';
 $route['iphone/:num'] = 'iphone/view/$1';
 $route['iphone/view/:any'] = 'iphone/view';
 
+
 //$route['api/:num'] = 'api/view/$1';
 
 //$route['404_override'] = '';

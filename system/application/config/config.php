@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://192.168.0.41/forked.stikked.git/';
+$config['base_url']	= 'http://localhost/~rdespres/forked.stikked/';
 
 /*
 |--------------------------------------------------------------------------
@@ -127,7 +127,7 @@ $config['subclass_prefix'] = 'MY_';
 |
 */
 //$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
-$config['permitted_uri_chars'] = 'a-z 0-9~%\.\:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%\*\.\:_\-';
 
 
 /*

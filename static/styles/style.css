@@ -19,8 +19,9 @@ a:hover{color:#999;text-decoration:none;}
 .windows{background:url(../images/windows.png) no-repeat 0 6px;}
 .content_sub_title{font-weight:700;font-size:1em;border-bottom:1px dotted #999;margin:10px 0 0;}
 #header{background-color:#2a4367;color:#fff;-moz-border-radius:0 0 6px 6px;-webkit-border-radius:0 0 6px 6px;border-radius:0 0 6px 6px;}
-#super_frame{min-width:990px;margin:0;}
+#super_frame{min-width:990px;margin:0 auto;width: 990px;}
 #monster_frame{border:1px solid #CECECE;background-color:#fff;-moz-border-radius:6px;-webkit-border-radius:6px;border-radius:6px;margin:0;}
+#content_frame { clear: both; margin: 10px 0 0; overflow: hidden; }
 #header_frame{margin:0;}
 #header a{color:#fff;}
 .menu_users {width: 160px;margin:0;padding: 3px 0 0 0;}

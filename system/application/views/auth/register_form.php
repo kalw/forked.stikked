@@ -1,5 +1,5 @@
 <?php
-//$this->load->view('defaults/header');
+$this->load->view('defaults/header');
 if ($use_username) {
 	$username = array(
 		'name'	=> 'username',
@@ -99,3 +99,5 @@ $captcha = array(
 </table>
 <?php echo form_submit('register', 'Register'); ?>
 <?php echo form_close(); ?>
+</body>
+</html>

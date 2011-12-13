@@ -1,5 +1,5 @@
 <?php
-//$this->load->view('defaults/header');
+$this->load->view('defaults/header');
 $new_password = array(
 	'name'	=> 'new_password',
 	'id'	=> 'new_password',
@@ -28,3 +28,5 @@ $confirm_new_password = array(
 </table>
 <?php echo form_submit('change', 'Change Password'); ?>
 <?php echo form_close(); ?>
+</body>
+</html>
