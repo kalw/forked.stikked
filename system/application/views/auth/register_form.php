@@ -7,6 +7,7 @@ if ($use_username) {
 		'value' => set_value('username'),
 		'maxlength'	=> $this->config->item('username_max_length', 'tank_auth'),
 		'size'	=> 30,
+		'class'	=> 'post_input',
 	);
 }
 $email = array(
@@ -15,6 +16,7 @@ $email = array(
 	'value'	=> set_value('email'),
 	'maxlength'	=> 80,
 	'size'	=> 30,
+	'class'	=> 'post_input',
 );
 $password = array(
 	'name'	=> 'password',
@@ -22,6 +24,7 @@ $password = array(
 	'value' => set_value('password'),
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size'	=> 30,
+	'class'	=> 'post_input',
 );
 $confirm_password = array(
 	'name'	=> 'confirm_password',
@@ -29,14 +32,17 @@ $confirm_password = array(
 	'value' => set_value('confirm_password'),
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size'	=> 30,
+	'class'	=> 'post_input',
 );
 $captcha = array(
 	'name'	=> 'captcha',
 	'id'	=> 'captcha',
 	'maxlength'	=> 8,
+	'class'	=> 'post_input',
 );
 ?>
 <?php echo form_open($this->uri->uri_string()); ?>
+<div class="auth_style">
 <table>
 	<?php if ($use_username) { ?>
 	<tr>
@@ -97,7 +103,8 @@ $captcha = array(
 	<?php }
 	} ?>
 </table>
-<?php echo form_submit('register', 'Register'); ?>
+</div>
+<?php echo form_submit(array( "name" => "register", "value" => "Register", "class" => "button1" )); ?>
 <?php echo form_close(); ?>
 </body>
 </html>

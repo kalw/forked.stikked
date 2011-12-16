@@ -126,6 +126,7 @@ li.empty,li.empty:hover{height:25px;background:url(../images/empty.png) no-repea
 .form_right{float:right;width:200px;padding-top:5px;height:40px;text-align:left;}
 .highlight{cursor:pointer;}
 .form_frame_left{float:left;border-right:1px solid #ddd;margin:10px;}
+.form_frame_right{float:left;border-right:1px solid #ddd;margin:10px 10px 10px 0;padding:0 0 10px;}
 .form_login_frame{font-size:0.75em;float:left;border-bottom:1px solid #ddd;margin:10px 10px 10px 0;padding:0 0 10px;}
 .form_avatar{width:50px;border:1px solid #ddd;height:50px;float:left;margin:0 10px 0 0;padding:2px;}
 .form_text{float:left;}
@@ -163,3 +164,4 @@ a.clink{color:#ff3;}
 .domain_frame,.upload_text{font-size:0.8em;}
 .vdown,.maintable img{vertical-align:top;margin:3px 0 0;}
 #header_top,#header_bottom{font-size:0.7em;text-align:right;text-transform:uppercase;padding:1px 5px;}
+.auth_style{line-height: 45px;font-size: 0.75em;}

@@ -87,6 +87,15 @@
 					echo form_dropdown('expire', $options, $expire_set, $expire_extra); 
 				?>
 			</div>
+			<?php if($reply){?>
+				<input type="hidden" value="<?php echo $reply; ?>" name="reply" />
+			<?php }?>
+	
+			<div class="form_left">
+				<div class="">
+					<button type="submit" value="submit" name="submit" class="button1">Create</button><br>&nbsp
+				</div>
+			</div>
 		</div>
 
 
@@ -143,19 +152,9 @@
 					?>
 				</div>
 			</div>						
-	
 		
 	
-			<?php if($reply){?>
-				<input type="hidden" value="<?php echo $reply; ?>" name="reply" />
-			<?php }?>
-	
-			<div class="">
-				<div class="">
-					<button type="submit" value="submit" name="submit" class="button1">Create</button><br>&nbsp
-				</div>
-			</div>
-		</form>
 		</div>
+		</form>
 	</div>
 </div>

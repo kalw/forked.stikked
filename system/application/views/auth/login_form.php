@@ -6,6 +6,7 @@ $login = array(
 	'value' => set_value('login'),
 	'maxlength'	=> 80,
 	'size'	=> 30,
+	'class'	=> 'post_input',
 );
 if ($login_by_username AND $login_by_email) {
 	$login_label = 'Email or login';
@@ -18,6 +19,7 @@ $password = array(
 	'name'	=> 'password',
 	'id'	=> 'password',
 	'size'	=> 30,
+	'class'	=> 'post_input',
 );
 $remember = array(
 	'name'	=> 'remember',
@@ -33,6 +35,7 @@ $captcha = array(
 );
 ?>
 <?php echo form_open($this->uri->uri_string()); ?>
+<div class="auth_style">
 <table>
 	<tr>
 		<td><?php echo form_label($login_label, $login['id']); ?></td>
@@ -83,14 +86,15 @@ $captcha = array(
 
 	<tr>
 		<td colspan="3">
-			<?php echo form_checkbox($remember); ?>
-			<?php echo form_label('Remember me', $remember['id']); ?>
-			<?php echo anchor('/auth/forgot_password/', 'Forgot password'); ?>
+			<?php echo form_checkbox($remember); ?> 
+			<?php echo form_label('Remember me', $remember['id']); ?> |
+			<?php echo anchor('/auth/forgot_password/', 'Forgot password'); ?> | 
 			<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor('/auth/register/', 'Register'); ?>
 		</td>
 	</tr>
 </table>
-<?php echo form_submit('submit', 'Let me in'); ?>
+</div>
+<?php echo form_submit(array( "name" => "submit", "value" => "Let me in", "class" => "button1" )); ?>
 <?php echo form_close(); ?>
 </body>
 </html>

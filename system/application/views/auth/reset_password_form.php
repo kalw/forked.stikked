@@ -5,15 +5,18 @@ $new_password = array(
 	'id'	=> 'new_password',
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size'	=> 30,
+	'class'	=> 'post_input',
 );
 $confirm_new_password = array(
 	'name'	=> 'confirm_new_password',
 	'id'	=> 'confirm_new_password',
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size' 	=> 30,
+	'class'	=> 'post_input',
 );
 ?>
 <?php echo form_open($this->uri->uri_string()); ?>
+<div class="auth_style">
 <table>
 	<tr>
 		<td><?php echo form_label('New Password', $new_password['id']); ?></td>
@@ -26,7 +29,8 @@ $confirm_new_password = array(
 		<td style="color: red;"><?php echo form_error($confirm_new_password['name']); ?><?php echo isset($errors[$confirm_new_password['name']])?$errors[$confirm_new_password['name']]:''; ?></td>
 	</tr>
 </table>
-<?php echo form_submit('change', 'Change Password'); ?>
+</div>
+<?php echo form_submit(array( "name" => "change", "value" => "Change Password", "class" => "button1" )); ?>
 <?php echo form_close(); ?>
 </body>
 </html>

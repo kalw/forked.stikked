@@ -4,6 +4,7 @@ $password = array(
 	'name'	=> 'password',
 	'id'	=> 'password',
 	'size'	=> 30,
+	'class'	=> 'post_input',
 );
 $email = array(
 	'name'	=> 'email',
@@ -11,6 +12,7 @@ $email = array(
 	'value'	=> set_value('email'),
 	'maxlength'	=> 80,
 	'size'	=> 30,
+	'class'	=> 'post_input',
 );
 ?>
 <?php echo form_open($this->uri->uri_string()); ?>
