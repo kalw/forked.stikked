@@ -34,10 +34,10 @@ res=$($CocoaDialogPath standard-dropdown --title "Snipplr" --text "Select Snippe
 res=$(tail -n1 <<<"$res")
 #echo "$res"
 res=$(expr $res + 2)
-#echo "$res"
+echo "$res"
 
-#echo $ids
-res=`echo "$ids" |cut -d " " -f $res|sed -e 's/ $//' `
+echo $ids
+res=`echo "$ids" |sed -e 's/ $//' `
 #echo $res
 
 curl -s $FS_URL/index.php/api/raw/format/txt/pid/$res |sed -e 's/^"//' -e 's/".*$//' | pbcopy
